@@ -239,7 +239,7 @@ func (d *Driver) NodeGetVolumeStats(ctx context.Context, req *csi.NodeGetVolumeS
 
 	volumeMetrics, err := utils.GetVolumeMetrics(VolumePath)
 	if err != nil {
-		msg := fmt.Sprintf("get volume metrics failed, reason %v", volumeMetrics)
+		msg := fmt.Sprintf("get volume metrics failed, reason %v", err)
 		log.Errorln(msg)
 		return nil, status.Error(codes.Internal, msg)
 	}
